@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Manajemen Tugas Kuliah</title>
+    <!-- Font Asli Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Efek Latar Belakang Glassmorphism Lebih Hidup -->
+    <div class="bg-blobs">
+        <div class="blob left"></div>
+        <div class="blob right"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Task<span class="accent">Flow</span></h1>
+            <p>Manajemen Tugas Kuliah Premium</p>
+        </header>
+
+        <main>
+            <section class="form-section glass">
+                <h2>Tambah Tugas Baru</h2>
+                <form id="taskForm">
+                    <div class="input-group">
+                        <label for="taskName">Nama Tugas</label>
+                        <input type="text" id="taskName" placeholder="Contoh: Makalah Sistem Digital" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group flex-1">
+                            <label for="subject">Mata Kuliah</label>
+                            <input type="text" id="subject" placeholder="Contoh: Sistem Digital" required>
+                        </div>
+                        <div class="input-group flex-1">
+                            <label for="deadline">Deadline</label>
+                            <input type="datetime-local" id="deadline" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="description">Deskripsi</label>
+                        <textarea id="description" rows="3" placeholder="Detail dan catatan tugas..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Simpan Tugas</button>
+                </form>
+            </section>
+
+            <section class="controls">
+                <div class="control-group">
+                    <label for="filterStatus">Filter Tugas:</label>
+                    <div class="custom-select" id="wrapper-filterStatus">
+                        <input type="hidden" id="filterStatus" value="all">
+                        <div class="custom-select-trigger">
+                            <span class="selected-text">Semua</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="custom-options">
+                            <span class="custom-option selected" data-value="all">Semua</span>
+                            <span class="custom-option" data-value="pending">Belum Selesai</span>
+                            <span class="custom-option" data-value="completed">Selesai</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="sortTasks">Urutkan Berdasarkan:</label>
+                    <div class="custom-select" id="wrapper-sortTasks">
+                        <input type="hidden" id="sortTasks" value="nearest">
+                        <div class="custom-select-trigger">
+                            <span class="selected-text">Deadline Terdekat</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="custom-options">
+                            <span class="custom-option selected" data-value="nearest">Deadline Terdekat</span>
+                            <span class="custom-option" data-value="furthest">Deadline Terlama</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tasks-section" id="tasksContainer">
+                <!-- Kartu Tugas Akan Ditambahkan Di Sini Via JS -->
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
